@@ -1,0 +1,57 @@
+
+:root{
+    --color-green-low:#BEEFC3;
+    --color-green-high: #4B956C;
+    --color-white-low: #FCEFF9;
+}
+
+
+@media  screen and (max-width: 400px){
+
+*{
+ font-family: 'Poppins', sans-serif;
+}
+.body{
+    background-color: var(--color-white-low);
+}
+    /*--logo--*/
+.header-style{
+    display: flex;
+    justify-content: center;
+}
+
+.Logo { 
+    width: 5rem;
+    height: 5rem;
+}
+}
+
+    /*--title--*/
+.title-list{
+    margin-top: 2rem ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    border: 2px solid var(--color-green-low);
+    background-color: var(--color-green-low);
+    position: relative;
+}
+
+.title-list img{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.8rem;
+    position: absolute;
+    right: 1rem;
+}
+    /*--list--*/
+
+.hidden{
+    display: none;
+}
+
+.list-Grocery{
+    border: 1px solid var(--color-green-high);
+    background-color: var(--color-green-low);
+}
