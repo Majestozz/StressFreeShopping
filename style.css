@@ -3,6 +3,10 @@
     --color-green-low:#BEEFC3;
     --color-green-high: #4B956C;
     --color-white-low: #FCEFF9;
+    --color-blue-category:#B388EB;
+    --color-blue-category2:#b388eb63;
+    --color-green-category:#60D394;
+    --color-green-category2:#60d3946c;
 }
 
 
@@ -52,6 +56,81 @@
 }
 
 .list-Grocery{
-    border: 1px solid var(--color-green-high);
-    background-color: var(--color-green-low);
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-bakery{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-colds{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-fruits{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-vegetables{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-meat{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-frozen{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-drinks{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-canned{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-treats{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-preparations{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-sauces{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-utilities{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-cleaning{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-hygiene{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-pharmacy{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+.list-pets{
+    border: 2px solid var(--color-blue-category);
+    background-color: var(--color-blue-category2);
+}
+.list-home-appliances{
+    border: 2px solid var(--color-green-category);
+    background-color: var(--color-green-category2);
+}
+
+.itens-list-style img{
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: 1rem;
 }
