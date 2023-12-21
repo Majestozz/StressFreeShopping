@@ -20,9 +20,10 @@
             <p class="name-list">My list</p>
             <img src="imagens/plus.png" alt="image for add iten in list" class="plus-add-iten">
         </div>
+        <div class="form-add-iten-container hidden">
         <div class="form-add-iten-style">
             <form action="" class="form-add-iten">
-                <label for="text">Name of Iten...</label>
+                <label for="text">Name</label>
                 <input type="text" class="input-name" name="name" id="input-name" placeholder="  Here please!!" required>
             
             <br>
@@ -60,9 +61,13 @@
                 <label for="text">Brand</label>
                 <input type="text" class="input-brand" name="brand" id="input-brand" placeholder="  Here please!!">
                 <br>
-                <button type="submit"> To Add</button>
+                <button class="button-to-add" type="submit"> To Add</button>
             </form>
         </div>
+    </div>
+
+    <!--List-->
+    <div class="list-container">
         <div class="itens-list-style list-Grocery"><!--Grocery-->
             <ul class="itens-in-list-Grocery-store"> Grocery Store <img src="imagens/menu.png" alt="image for a menu" class="img-menu">
                 <li class="iten-of-list shopping  hidden"> <img src="imagens/car-shopping.png" alt="image for a car" class="car-shopping-button">
@@ -225,6 +230,7 @@
                     </li>
                 </ul>
             </div>
+        </div>
     </section>
 </body>
 </html>
