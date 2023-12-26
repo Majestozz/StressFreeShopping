@@ -1,7 +1,7 @@
 const buttonPlusForm = document.querySelector(".plus-add-iten");
 const formAddIten = document.querySelector(".form-add-iten-container")
 const buttonSubmitForm = document.querySelector(".button-to-add")
-//const listAll = document.querySelector(".list-container")
+
 
 let nameOfIten = JSON.parse(localStorage.getItem("nameIten")) || []//convert JSON
 
@@ -78,15 +78,24 @@ document.querySelectorAll(".img-menu").forEach((btn) => {
           elemento.classList.add("hidden");
         }
       });
+      viewItenList()
     }
+
     
   
   function viewItenList(){
+    var existingData = localStorage.getItem("MyItens");
+
+    var existingItens = existingData ? JSON.parse(existingData) : [];
+
+    const listAll = document.querySelector(".list-container")
+
     listAll.innerHTML = "";
 
-    existingItens.forEach(function(item){
+      existingItens.forEach(function(item){
       var listItem = document.createElement("li");
       listItem.textContent = `Name: ${item.Name}, Category:${item.Category}, Units:${item.Units},Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
       listAll.appendChild(listItem)
     })
+   
   }
