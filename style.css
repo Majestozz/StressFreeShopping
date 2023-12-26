@@ -85,7 +85,7 @@ label {
 }
 
 /* Estilo para o seletor de categoria */
-#select-for-category {
+.select-for-category {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
@@ -93,7 +93,7 @@ label {
 }
 
 /* Estilo para o seletor de importância */
-#importance-id {
+#importanceId {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;

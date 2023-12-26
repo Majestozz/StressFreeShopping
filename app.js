@@ -1,6 +1,7 @@
 const buttonPlusForm = document.querySelector(".plus-add-iten");
 const formAddIten = document.querySelector(".form-add-iten-container")
 const buttonSubmitForm = document.querySelector(".button-to-add")
+//const listAll = document.querySelector(".list-container")
 
 let nameOfIten = JSON.parse(localStorage.getItem("nameIten")) || []//convert JSON
 
@@ -18,21 +19,34 @@ buttonPlusForm.addEventListener("click", ()=>{
 
 buttonSubmitForm.addEventListener("click", (evento)=>{//event to submit form
   evento.preventDefault();//do not refresh the page
-  addNameStorage();//call function addNameStorage
+  addLocalStorage();//call function addLocalStorage
 })
 
-function addNameStorage(){//function to add inputs in localStorage
+function addLocalStorage(){//function to add inputs in localStorage
 const inputNameIten = document.getElementById("inputName").value//recover input field
-const selectElement = document.getElementById("selectCategory");
-const selectValueCategory = selectElement.options[selectElement.selectedIndex].value;
-if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== ""){//conditional for Input is different from void add iten
+const selectElement = document.getElementById("selectCategory");//recover select field
+const selectValueCategory = selectElement.options[selectElement.selectedIndex].value;//recover value select field
+const inputUnitsIten = document.getElementById("inputUnits").value//recover input field
+const selectElementImportance = document.getElementById("importanceId");
+const selectValueImportance = selectElementImportance.options[selectElementImportance.selectedIndex].value;
+const inputBrand = document.getElementById("inputBrand").value;
+if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsIten.trim()!==""
+&& selectValueImportance.trim()!=="" ){//conditional for Input is different from void add iten
 
-  var data = {
+  var existingData = localStorage.getItem("MyItens");
+  var existingItens = existingData ? JSON.parse(existingData) : [];
+
+  var newIten = {//save all infos in var
     Name: inputNameIten,
-    Category: selectValueCategory
+    Category: selectValueCategory,
+    Units: inputUnitsIten,
+    Importance: selectValueImportance,
+    Brand: inputBrand.trim()!== "" ? inputBrand : null
   };
 
-  localStorage.setItem("My itens", JSON.stringify(data));//add item in LocalStorage
+  existingItens.push(newIten)//add item in LocalStorage
+
+  localStorage.setItem("MyItens", JSON.stringify(existingItens));//save the list
 
   document.getElementById("inputName").value = "";//refresh input field
 
@@ -49,7 +63,12 @@ document.querySelectorAll(".img-menu").forEach((btn) => {
   });
   }
 
-
+  document.querySelectorAll(".img-menu").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      viewList();
+    });
+  });
+  
   function viewList() {
     document.querySelectorAll(".iten-of-list").forEach((elemento) => {
       elemento.onclick
@@ -62,3 +81,12 @@ document.querySelectorAll(".img-menu").forEach((btn) => {
     }
     
   
+  function viewItenList(){
+    listAll.innerHTML = "";
+
+    existingItens.forEach(function(item){
+      var listItem = document.createElement("li");
+      listItem.textContent = `Name: ${item.Name}, Category:${item.Category}, Units:${item.Units},Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      listAll.appendChild(listItem)
+    })
+  }
