@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,500&display=swap" rel="stylesheet">
-    <title>ComprasSemEstresse</title>
+<title>ComprasSemEstresse</title>
+<script src="app.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,11 +25,11 @@
         <div class="form-add-iten-style">
             <form action="" class="form-add-iten">
                 <label for="text">Name</label>
-                <input type="text" class="input-name" name="name" id="input-name" placeholder="  Here please!!" required>
+                <input type="text" class="input-name" name="name" id="inputName" placeholder="  Here please!!" required>
             
             <br>
                 <label for="text">Category</label>
-                <select name="select-category" id="select-for-category" required>What Category
+                <select name="select-category" id="selectCategory" class="select-category" required>What Category
                     <option value="grocery-store">Grocery Store</option>
                     <option value="bakery">Bakery</option>
                     <option value="colds">Colds</option>
@@ -186,7 +187,7 @@
                 </ul>
             </div>
         <div class="itens-list-style list-cleaning"><!--Cleaning-->
-                <ul class="itens-in-list-cleaning"> Cleaning<img src="imagens/menu.png" alt="image for a menu" class="img-menu">
+                <ul class="itens-in-list-cleaning"> Cleaning<img src="imagens/menu.png" alt="image for a menu" class="img-menu" id="img-menu">
                     <li class="iten-of-list shopping hidden"> <img src="imagens/car-shopping.png" alt="image for a car" class="car-shopping-button">
                         <a class="categories-iten"></a>
                         <a class="units-iten"></a>
