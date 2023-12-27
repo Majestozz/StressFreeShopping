@@ -49,6 +49,10 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
   localStorage.setItem("MyItens", JSON.stringify(existingItens));//save the list
 
   document.getElementById("inputName").value = "";//refresh input field
+  document.getElementById("selectCategory").value = "";
+  document.getElementById("inputUnits").value = "";
+  document.getElementById("importanceId").value = "";
+  document.getElementById("inputBrand").value = "";
 
 }
 
@@ -74,28 +78,36 @@ document.querySelectorAll(".img-menu").forEach((btn) => {
       elemento.onclick
         if (elemento.classList.contains("hidden")) {
           elemento.classList.remove("hidden");
+          viewItenList()
         } else {
           elemento.classList.add("hidden");
         }
       });
-      viewItenList()
+      
     }
 
-    
-  
   function viewItenList(){
+
     var existingData = localStorage.getItem("MyItens");
 
     var existingItens = existingData ? JSON.parse(existingData) : [];
-
-    const listAll = document.querySelector(".list-container")
-
+    
+   
+    const listAll = document.querySelector(".itens-list-style")
+   
     listAll.innerHTML = "";
 
+    if(existingItens.length > 0){
+      listAll.innerHTML = `<ul class="itens-in-list-Grocery-store"> Grocery Store <img src="imagens/menu.png" alt="image for a menu" class="img-menu">`;
+    }
       existingItens.forEach(function(item){
+      if(item.Category === "meat"){
       var listItem = document.createElement("li");
-      listItem.textContent = `Name: ${item.Name}, Category:${item.Category}, Units:${item.Units},Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      listItem.textContent = `Name: ${item.Name},
+      Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
       listAll.appendChild(listItem)
-    })
-   
+    }}) 
+   if(existingItens.length > 0){
+    listAll.innerHTML += "</ul>";
+   }
   }
