@@ -55,59 +55,71 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
   document.getElementById("inputBrand").value = "";
 
 }
+}
 
 
-
-
-
-document.querySelectorAll(".img-menu").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      viewList();
-    });
-  });
-  }
-
-  document.querySelectorAll(".img-menu").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      viewList();
-    });
-  });
-  
-  function viewList() {
-    document.querySelectorAll(".iten-of-list").forEach((elemento) => {
-      elemento.onclick
-        if (elemento.classList.contains("hidden")) {
-          elemento.classList.remove("hidden");
-          viewItenList()
-        } else {
-          elemento.classList.add("hidden");
-        }
-      });
-      
-    }
-
-  function viewItenList(){
+  function viewItenList(){//function for view list
 
     var existingData = localStorage.getItem("MyItens");
 
     var existingItens = existingData ? JSON.parse(existingData) : [];
     
    
-    const listAll = document.querySelector(".itens-list-style")
+    const listAll = document.querySelector(".itens-in-list-meat")
    
-    listAll.innerHTML = "";
+    
 
-    if(existingItens.length > 0){
-      listAll.innerHTML = `<ul class="itens-in-list-Grocery-store"> Grocery Store <img src="imagens/menu.png" alt="image for a menu" class="img-menu">`;
+    if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+      listAll.innerHTML = `<class="itens-in-list-meat ">Meat<img src="imagens/menu.png" alt="image for a menu" class="img-menu-meat">`;
     }
       existingItens.forEach(function(item){
-      if(item.Category === "meat"){
+      if(item.Category === "meat"){//compare if category is equal a meat
       var listItem = document.createElement("li");
+      listItem.innerHTML = `<class="iten-of-list meat-list shopping hidden"> <img src="imagens/car-shopping.png" alt="image for a car" class="car-shopping-button">`
       listItem.textContent = `Name: ${item.Name},
       Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
       listAll.appendChild(listItem)
     }}) 
+    //close the list (if there are items)
    if(existingItens.length > 0){
     listAll.innerHTML += "</ul>";
    }
   }
+
+  function menuMeatView(){
+  const menuMeat = document.querySelector(".itens-in-list-meat")
+  if (menuMeat) {
+    menuMeat.addEventListener("click", () => {
+      if(menuMeat.classList.contains("active")){
+        listHidden()
+      }else{
+      menuMeat.classList.add("active")
+        viewList();
+  }
+    })
+    };
+  }
+function listHidden(){
+   const menuMeat = document.querySelector(".itens-in-list-meat")
+   if (menuMeat) {
+    menuMeat.classList.remove("active")
+      desviewList()
+   }
+    }
+
+  
+  function viewList() {
+   const buttonMeat = document.querySelector(".meat-list")
+   if( buttonMeat &&buttonMeat.classList.contains("hidden")){
+      buttonMeat.classList.remove("hidden")
+      viewItenList();
+    }
+  }
+  function desviewList(){
+    const buttonMeat = document.querySelector(".meat-list")
+    if(buttonMeat && !buttonMeat.classList.contains("hidden")){
+    buttonMeat.classList.add("hidden")
+    }
+  }
+
+document.addEventListener("DOMContentLoaded", menuMeatView)

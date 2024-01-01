@@ -12,13 +12,17 @@
 
 
 
-@media  screen and (max-width: 400px){
+@media  screen and (max-width: 1792px){
 
 *{
  font-family: 'Poppins', sans-serif;
 }
 .body{
     background-color: var(--color-white-low);
+}
+
+ul{
+    list-style-type: none;
 }
     /*--logo--*/
 .header-style{
@@ -120,6 +124,9 @@ label {
 .hidden{
     display: none;
 }
+.active img{
+    transform: rotate(90deg);
+}
 
 .list-Grocery{
     border: 2px solid var(--color-blue-category);
@@ -199,4 +206,9 @@ label {
     height: 1.5rem;
     position: absolute;
     right: 1rem;
+}
+
+.list-view-css-purple{
+    border: 1px solid var(--color-blue-category);
+
 }
