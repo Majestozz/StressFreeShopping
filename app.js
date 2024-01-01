@@ -58,7 +58,7 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
 }
 
 
-  function viewItenList(){//function for view list
+  function viewItenListMeat(){//function for view list
 
     var existingData = localStorage.getItem("MyItens");
 
@@ -75,51 +75,93 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       existingItens.forEach(function(item){
       if(item.Category === "meat"){//compare if category is equal a meat
       var listItem = document.createElement("li");
-      listItem.innerHTML = `<class="iten-of-list meat-list shopping hidden"> <img src="imagens/car-shopping.png" alt="image for a car" class="car-shopping-button">`
+      listItem.classList.add("meat-list")
       listItem.textContent = `Name: ${item.Name},
       Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
       listAll.appendChild(listItem)
     }}) 
-    //close the list (if there are items)
-   if(existingItens.length > 0){
-    listAll.innerHTML += "</ul>";
    }
-  }
+   
 
   function menuMeatView(){
   const menuMeat = document.querySelector(".itens-in-list-meat")
+  const buttonMeat = document.querySelector(".meat-list")
   if (menuMeat) {
     menuMeat.addEventListener("click", () => {
       if(menuMeat.classList.contains("active")){
-        listHidden()
+        menuMeat.classList.remove("active")
+        desviewListMeat()
       }else{
       menuMeat.classList.add("active")
-        viewList();
+      viewListMeat()
   }
     })
     };
   }
-function listHidden(){
-   const menuMeat = document.querySelector(".itens-in-list-meat")
-   if (menuMeat) {
-    menuMeat.classList.remove("active")
-      desviewList()
+  function desviewListMeat(){
+    const buttonMeat = document.querySelectorAll(".meat-list")
+    buttonMeat.forEach(function(btn){
+      btn.classList.add("hidden")
+    })
+  }
+  function viewListMeat() {
+   const buttonMeat = document.querySelectorAll(".meat-list")
+   buttonMeat.forEach(function(btn){
+   if (btn.classList.contains("hidden")) {
+      btn.classList.remove("hidden")
+      viewItenListMeat();
    }
-    }
-
-  
-  function viewList() {
-   const buttonMeat = document.querySelector(".meat-list")
-   if( buttonMeat &&buttonMeat.classList.contains("hidden")){
-      buttonMeat.classList.remove("hidden")
-      viewItenList();
-    }
-  }
-  function desviewList(){
-    const buttonMeat = document.querySelector(".meat-list")
-    if(buttonMeat && !buttonMeat.classList.contains("hidden")){
-    buttonMeat.classList.add("hidden")
-    }
+})
   }
 
+  function viewItenListGrocery(){//function for view list
+    var existingData = localStorage.getItem("MyItens");
+    var existingItens = existingData ? JSON.parse(existingData) : [];
+    const listAll = document.querySelector(".itens-in-list-Grocery-store")  
+    if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+      listAll.innerHTML = `<class="itens-in-list-Grocery ">Grocery Store<img src="imagens/menu.png" alt="image for a menu" class="img-menu-Grocery">`;
+    }
+      existingItens.forEach(function(item){
+      if(item.Category === "grocery-store"){//compare if category is equal a Grocery
+      var listItem = document.createElement("li");
+      listItem.classList.add("grocery-list")
+      listItem.textContent = `Name: ${item.Name},
+      Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      listAll.appendChild(listItem)
+    }}) 
+   }
+   
+
+  function menuGroceryView(){
+  const menuGrocery = document.querySelector(".itens-in-list-Grocery-store")
+  const buttonGrocery = document.querySelector(".grocery-list")
+  if (menuGrocery) {
+    menuGrocery.addEventListener("click", () => {
+      if(menuGrocery.classList.contains("active")){
+        menuGrocery.classList.remove("active")
+        desviewListGrocery()
+      }else{
+      menuGrocery.classList.add("active")
+      viewListGrocery()
+  }
+    })
+    };
+  }
+  function desviewListGrocery(){
+    const buttonGrocery = document.querySelectorAll(".grocery-list")
+    buttonGrocery.forEach(function(btn){
+      btn.classList.add("hidden")
+    })
+  }
+  function viewListGrocery() {
+   const buttonGrocery = document.querySelectorAll(".grocery-list")
+   buttonGrocery.forEach(function(btn){
+   if (btn.classList.contains("hidden")) {
+      btn.classList.remove("hidden")
+      viewItenListGrocery();
+   }
+})
+  }
+
+  document.addEventListener("DOMContentLoaded", menuGroceryView)
 document.addEventListener("DOMContentLoaded", menuMeatView)
