@@ -81,6 +81,10 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       listAll.appendChild(listItem)
     }}) 
    }
+   if(existingItens.length > 0){
+    listAll.innerHTML += "</ul>";
+   }
+  
    
 
   function menuMeatView(){
@@ -129,6 +133,9 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
       listAll.appendChild(listItem)
     }}) 
+   }
+   if(existingItens.length > 0){
+    listAll.innerHTML += "</ul>";
    }
    
 
