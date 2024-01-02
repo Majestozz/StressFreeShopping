@@ -1,13 +1,14 @@
 
 
 :root{
-    --color-green-low:#BEEFC3;
-    --color-green-high: #4B956C;
+    --color-green-low:#CAFFBF;
+    --color-green-high: #caffbfd8;
     --color-white-low: #FCEFF9;
-    --color-blue-category:#B388EB;
-    --color-blue-category2:#b388eb63;
-    --color-green-category:#60D394;
-    --color-green-category2:#60d3946c;
+    --color-yellow-category:#88FF70;
+    --color-yellow-category2:#BBFFAD;
+    --color-green-category:#bcf5b1;
+    --color-green-category2:#CAFFBF;
+    --color-text-category-green:#8093F1;
 }
 
 
@@ -16,13 +17,16 @@
 
 *{
  font-family: 'Poppins', sans-serif;
+ font-weight: bold;
 }
 .body{
     background-color: var(--color-white-low);
+    
 }
 
 ul{
     list-style-type: none;
+    
 }
     /*--logo--*/
 .header-style{
@@ -129,72 +133,72 @@ label {
 }
 
 .list-Grocery{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-bakery{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-colds{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-fruits{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-vegetables{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-meat{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-frozen{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-drinks{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-canned{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-treats{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-preparations{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-sauces{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-utilities{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-cleaning{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-hygiene{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-pharmacy{
     border: 2px solid var(--color-green-category);
     background-color: var(--color-green-category2);
 }
 .list-pets{
-    border: 2px solid var(--color-blue-category);
-    background-color: var(--color-blue-category2);
+    border: 2px solid var(--color-yellow-category);
+    background-color: var(--color-yellow-category2);
 }
 .list-home-appliances{
     border: 2px solid var(--color-green-category);
@@ -209,6 +213,13 @@ label {
 }
 
 .list-view-css-purple{
-    border: 1px solid var(--color-blue-category);
-
+    border: 1px solid var(--color-yellow-category);
+}
+.iten-of-list-green{
+    border: 3px solid var(--color-yellow-category);
+    margin-left:-2.5rem;
+    margin-top: 3px;
+}
+.unit-style{
+    color: var(--color-text-category-green);
 }

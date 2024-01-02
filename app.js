@@ -76,17 +76,19 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       if(item.Category === "meat"){//compare if category is equal a meat
       var listItem = document.createElement("li");
       listItem.classList.add("meat-list")
-      listItem.textContent = `Name: ${item.Name},
-      Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      listItem.classList.add("iten-of-list-green")
+      listItem.innerHTML = `Name: ${item.Name},
+      <span class = "unit-style">Units: ${item.Units}</span>, Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      
       listAll.appendChild(listItem)
     }}) 
-   }
    if(existingItens.length > 0){
     listAll.innerHTML += "</ul>";
    }
+  }
   
    
-
+//Meat List
   function menuMeatView(){
   const menuMeat = document.querySelector(".itens-in-list-meat")
   const buttonMeat = document.querySelector(".meat-list")
@@ -129,14 +131,16 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       if(item.Category === "grocery-store"){//compare if category is equal a Grocery
       var listItem = document.createElement("li");
       listItem.classList.add("grocery-list")
+      listItem.classList.add("iten-of-list-yellow")
       listItem.textContent = `Name: ${item.Name},
       Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
       listAll.appendChild(listItem)
     }}) 
-   }
-   if(existingItens.length > 0){
+    if(existingItens.length > 0){
     listAll.innerHTML += "</ul>";
    }
+  }
+
    
 
   function menuGroceryView(){
