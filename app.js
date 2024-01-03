@@ -77,8 +77,10 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       var listItem = document.createElement("li");
       listItem.classList.add("meat-list")
       listItem.classList.add("iten-of-list-green")
-      listItem.innerHTML = `Name: ${item.Name},
-      <span class = "unit-style">Units: ${item.Units}</span>, Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+      <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+      <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+       <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
       
       listAll.appendChild(listItem)
     }}) 
@@ -114,7 +116,7 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
    const buttonMeat = document.querySelectorAll(".meat-list")
    buttonMeat.forEach(function(btn){
    if (btn.classList.contains("hidden")) {
-      btn.classList.remove("hidden")
+      btn.classList.toggle("view")
       viewItenListMeat();
    }
 })
@@ -131,9 +133,11 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       if(item.Category === "grocery-store"){//compare if category is equal a Grocery
       var listItem = document.createElement("li");
       listItem.classList.add("grocery-list")
-      listItem.classList.add("iten-of-list-yellow")
-      listItem.textContent = `Name: ${item.Name},
-      Units: ${item.Units} Importance:${item.Importance} Brand:${item.Brand || "N/A"}`
+      listItem.classList.add("iten-of-list-green2")
+      listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+      <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+      <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+       <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
       listAll.appendChild(listItem)
     }}) 
     if(existingItens.length > 0){
@@ -174,5 +178,62 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
 })
   }
 
-  document.addEventListener("DOMContentLoaded", menuGroceryView)
+  function viewItenListBakery(){//function for view list
+
+    var existingData = localStorage.getItem("MyItens");
+    var existingItens = existingData ? JSON.parse(existingData) : [];
+    const listAll = document.querySelector(".itens-in-list-bakery")
+   
+    
+
+    if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+      listAll.innerHTML = `<class="itens-in-list-bakery">Bakery<img src="imagens/menu.png" alt="image for a menu" class="img-menu-bakery">`;
+    }
+      existingItens.forEach(function(item){
+      if(item.Category === "bakery"){//compare if category is equal a bakery
+      var listItem = document.createElement("li");
+      listItem.classList.add("bakery-list")
+      listItem.classList.add("iten-of-list-green")
+      listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+      <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+      <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+       <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+      listAll.appendChild(listItem)
+    }}) 
+   }
+   function menuBakeryView(){
+    const menuBakery = document.querySelector(".itens-in-list-bakery")
+    const buttonBakery = document.querySelector(".bakery-list")
+    if (menuBakery) {
+      menuBakery.addEventListener("click", () => {
+        if(menuBakery.classList.contains("active")){
+          menuBakery.classList.remove("active")
+          desviewListBakery()
+        }else{
+        menuBakery.classList.add("active")
+        viewListBakery()
+    }
+      })
+      };
+    }
+    function desviewListBakery(){
+      const buttonBakery = document.querySelectorAll(".bakery-list")
+      buttonBakery.forEach(function(btn){
+        btn.classList.add("hidden")
+      })
+    }
+    function viewListBakery() {
+     const buttonBakery = document.querySelectorAll(".bakery-list")
+     buttonBakery.forEach(function(btn){
+     if (btn.classList.contains("hidden")) {
+        btn.classList.remove("hidden")
+        viewItenListBakery();
+     }
+  })
+    }
+
+
+
+document.addEventListener("DOMContentLoaded", menuGroceryView)
+document.addEventListener("DOMContentLoaded", menuBakeryView)
 document.addEventListener("DOMContentLoaded", menuMeatView)

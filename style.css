@@ -4,11 +4,12 @@
     --color-green-low:#CAFFBF;
     --color-green-high: #caffbfd8;
     --color-white-low: #FCEFF9;
-    --color-yellow-category:#88FF70;
+    --color-yellow-category:#76BE37;
     --color-yellow-category2:#BBFFAD;
-    --color-green-category:#bcf5b1;
+    --color-green-category:#60992D;
     --color-green-category2:#CAFFBF;
     --color-text-category-green:#8093F1;
+    --color-category-green:#60992D;
 }
 
 
@@ -110,8 +111,8 @@ label {
 
 /* Estilo para o botão de envio */
 .button-to-add {
-    background-color: var(--color-green-high);
-    color: white;
+    background-color: var(--color-green-category);
+    color: black;
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -130,6 +131,9 @@ label {
 }
 .active img{
     transform: rotate(90deg);
+}
+.view{
+    display: block;
 }
 
 .list-Grocery{
@@ -210,6 +214,7 @@ label {
     height: 1.5rem;
     position: absolute;
     right: 1rem;
+
 }
 
 .list-view-css-purple{
@@ -218,8 +223,34 @@ label {
 .iten-of-list-green{
     border: 3px solid var(--color-yellow-category);
     margin-left:-2.5rem;
-    margin-top: 3px;
+    margin-top: 3px;  
 }
+.iten-of-list-green2{
+    border: 3px solid var(--color-category-green);
+    margin-left:-2.5rem;
+    margin-top: 3px; 
+}
+.name-span{
+    color: var(--color-text-category-green);
+    margin-left: 1rem;
+}
+.name-span-item{
+    padding-right: 4rem;
+}
+
 .unit-style{
+    color: var(--color-text-category-green);
+}
+.unit-number{
+    color: black;
+}
+.importance-span{
+    color: var(--color-text-category-green);
+    margin-left: 1rem;
+}
+.importance-span-item{
+    padding-right: 1rem;
+}
+.brand-span{
     color: var(--color-text-category-green);
 }
