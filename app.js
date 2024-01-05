@@ -60,12 +60,12 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
 
   function viewItenListMeat(){//function for view list
 
-    var existingData = localStorage.getItem("MyItens");
+    var existingData = localStorage.getItem("MyItens");//create localStorage
 
     var existingItens = existingData ? JSON.parse(existingData) : [];
     
    
-    const listAll = document.querySelector(".itens-in-list-meat")
+    const listAll = document.querySelector(".itens-in-list-meat")//Create Const
    
     
 
@@ -80,9 +80,9 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
       <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
       <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
-       <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+       <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`//creating html element li and inserted value
       
-      listAll.appendChild(listItem)
+      listAll.appendChild(listItem)//joining list with html
     }}) 
    if(existingItens.length > 0){
     listAll.innerHTML += "</ul>";
@@ -91,7 +91,7 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
   
    
 //Meat List
-  function menuMeatView(){
+  function menuMeatView(){//list view in screen
   const menuMeat = document.querySelector(".itens-in-list-meat")
   const buttonMeat = document.querySelector(".meat-list")
   if (menuMeat) {
@@ -106,13 +106,13 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
     })
     };
   }
-  function desviewListMeat(){
+  function desviewListMeat(){//devisualization of the list
     const buttonMeat = document.querySelectorAll(".meat-list")
     buttonMeat.forEach(function(btn){
       btn.classList.add("hidden")
     })
   }
-  function viewListMeat() {
+  function viewListMeat() {//view list
    const buttonMeat = document.querySelectorAll(".meat-list")
    buttonMeat.forEach(function(btn){
    if (btn.classList.contains("hidden")) {
@@ -606,13 +606,579 @@ if(inputNameIten.trim()!== "" && selectValueCategory.trim()!== "" && inputUnitsI
       })
       }
 
+      function viewItenListTreats(){//function for view list
 
-document.addEventListener("DOMContentLoaded", menuCannedView)
-document.addEventListener("DOMContentLoaded", menuDrinksView)
-document.addEventListener("DOMContentLoaded", menuFrozenView)
-document.addEventListener("DOMContentLoaded", menuVegetablesView)
-document.addEventListener("DOMContentLoaded", menuFruitsView)
-document.addEventListener("DOMContentLoaded", menuColdsView)
-document.addEventListener("DOMContentLoaded", menuGroceryView)
-document.addEventListener("DOMContentLoaded", menuBakeryView)
-document.addEventListener("DOMContentLoaded", menuMeatView)
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-treats")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-treats ">Treats<img src="imagens/menu.png" alt="image for a menu" class="img-menu-treats">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "treats"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("treats-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuTreatsView(){
+      const menuTreats = document.querySelector(".itens-in-list-treats")
+      const buttonTreats = document.querySelector(".treats-list")
+      if (menuTreats) {
+        menuTreats.addEventListener("click", () => {
+          if(menuTreats.classList.contains("active")){
+            menuTreats.classList.remove("active")
+            desviewListTreats()
+          }else{
+          menuTreats.classList.add("active")
+          viewListTreats()
+      }
+        })
+        };
+      }
+      function desviewListTreats(){
+        const buttonTreats = document.querySelectorAll(".treats-list")
+        buttonTreats.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListTreats() {
+       const buttonTreats = document.querySelectorAll(".treats-list")
+       buttonTreats.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListTreats();
+       }
+      })
+      }
+      function viewItenListPreparations(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-preparations")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-preparations ">Preparations<img src="imagens/menu.png" alt="image for a menu" class="img-menu-preparations">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "preparations"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("preparations-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuPreparationsView(){
+      const menuPreparations = document.querySelector(".itens-in-list-preparations")
+      const buttonPreparations = document.querySelector(".preparations-list")
+      if (menuPreparations) {
+        menuPreparations.addEventListener("click", () => {
+          if(menuPreparations.classList.contains("active")){
+            menuPreparations.classList.remove("active")
+            desviewListPreparations()
+          }else{
+          menuPreparations.classList.add("active")
+          viewListPreparations()
+      }
+        })
+        };
+      }
+      function desviewListPreparations(){
+        const buttonPreparations = document.querySelectorAll(".preparations-list")
+        buttonPreparations.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListPreparations() {
+       const buttonPreparations = document.querySelectorAll(".preparations-list")
+       buttonPreparations.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListPreparations();
+       }
+      })
+      }
+      function viewItenListSauces(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-sauces")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-sauces ">Sauces<img src="imagens/menu.png" alt="image for a menu" class="img-menu-sauces">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "sauces"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("sauces-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuSaucesView(){
+      const menuSauces = document.querySelector(".itens-in-list-sauces")
+      const buttonSauces = document.querySelector(".sauces-list")
+      if (menuSauces) {
+        menuSauces.addEventListener("click", () => {
+          if(menuSauces.classList.contains("active")){
+            menuSauces.classList.remove("active")
+            desviewListSauces()
+          }else{
+          menuSauces.classList.add("active")
+          viewListSauces()
+      }
+        })
+        };
+      }
+      function desviewListSauces(){
+        const buttonSauces = document.querySelectorAll(".sauces-list")
+        buttonSauces.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListSauces() {
+       const buttonSauces = document.querySelectorAll(".sauces-list")
+       buttonSauces.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListSauces();
+       }
+      })
+      }
+      function viewItenListUtilities(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-utilities")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-utilities ">Utilities<img src="imagens/menu.png" alt="image for a menu" class="img-menu-utilities">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "utilities"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("utilities-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuUtilitiesView(){
+      const menuUtilities = document.querySelector(".itens-in-list-utilities")
+      const buttonUtilities = document.querySelector(".utilities-list")
+      if (menuUtilities) {
+        menuUtilities.addEventListener("click", () => {
+          if(menuUtilities.classList.contains("active")){
+            menuUtilities.classList.remove("active")
+            desviewListUtilities()
+          }else{
+          menuUtilities.classList.add("active")
+          viewListUtilities()
+      }
+        })
+        };
+      }
+      function desviewListUtilities(){
+        const buttonUtilities = document.querySelectorAll(".utilities-list")
+        buttonUtilities.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListUtilities() {
+       const buttonUtilities = document.querySelectorAll(".utilities-list")
+       buttonUtilities.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListUtilities();
+       }
+      })
+      }
+      function viewItenListCleaning(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-cleaning")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-cleaning ">Cleaning<img src="imagens/menu.png" alt="image for a menu" class="img-menu-cleaning">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "cleaning"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("cleaning-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuCleaningView(){
+      const menuCleaning = document.querySelector(".itens-in-list-cleaning")
+      const buttonCleaning = document.querySelector(".cleaning-list")
+      if (menuCleaning) {
+        menuCleaning.addEventListener("click", () => {
+          if(menuCleaning.classList.contains("active")){
+            menuCleaning.classList.remove("active")
+            desviewListCleaning()
+          }else{
+          menuCleaning.classList.add("active")
+          viewListCleaning()
+      }
+        })
+        };
+      }
+      function desviewListCleaning(){
+        const buttonCleaning = document.querySelectorAll(".cleaning-list")
+        buttonCleaning.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListCleaning() {
+       const buttonCleaning = document.querySelectorAll(".cleaning-list")
+       buttonCleaning.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListCleaning();
+       }
+      })
+      }
+      function viewItenListHygiene(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-hygiene")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-hygiene ">Hygiene<img src="imagens/menu.png" alt="image for a menu" class="img-menu-hygiene">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "hygiene"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("hygiene-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuHygieneView(){
+      const menuHygiene = document.querySelector(".itens-in-list-hygiene")
+      const buttonHygiene = document.querySelector(".hygiene-list")
+      if (menuHygiene) {
+        menuHygiene.addEventListener("click", () => {
+          if(menuHygiene.classList.contains("active")){
+            menuHygiene.classList.remove("active")
+            desviewListHygiene()
+          }else{
+          menuHygiene.classList.add("active")
+          viewListHygiene()
+      }
+        })
+        };
+      }
+      function desviewListHygiene(){
+        const buttonHygiene = document.querySelectorAll(".hygiene-list")
+        buttonHygiene.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListHygiene() {
+       const buttonHygiene = document.querySelectorAll(".hygiene-list")
+       buttonHygiene.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListHygiene();
+       }
+      })
+      }
+
+      function viewItenListPharmacy(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-pharmacy")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-pharmacy ">Pharmacy<img src="imagens/menu.png" alt="image for a menu" class="img-menu-pharmacy">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "pharmacy"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("pharmacy-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuPharmacyView(){
+      const menuPharmacy = document.querySelector(".itens-in-list-pharmacy")
+      const buttonPharmacy = document.querySelector(".pharmacy-list")
+      if (menuPharmacy) {
+        menuPharmacy.addEventListener("click", () => {
+          if(menuPharmacy.classList.contains("active")){
+            menuPharmacy.classList.remove("active")
+            desviewListPharmacy()
+          }else{
+          menuPharmacy.classList.add("active")
+          viewListPharmacy()
+      }
+        })
+        };
+      }
+      function desviewListPharmacy(){
+        const buttonPharmacy = document.querySelectorAll(".pharmacy-list")
+        buttonPharmacy.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListPharmacy() {
+       const buttonPharmacy = document.querySelectorAll(".pharmacy-list")
+       buttonPharmacy.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListPharmacy();
+       }
+      })
+      }
+
+      function viewItenListPets(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-pets")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-pets ">Pets<img src="imagens/menu.png" alt="image for a menu" class="img-menu-pets">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "pets"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("pets-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuPetsView(){
+      const menuPets = document.querySelector(".itens-in-list-pets")
+      const buttonPets = document.querySelector(".pets-list")
+      if (menuPets) {
+        menuPets.addEventListener("click", () => {
+          if(menuPets.classList.contains("active")){
+            menuPets.classList.remove("active")
+            desviewListPets()
+          }else{
+          menuPets.classList.add("active")
+          viewListPets()
+      }
+        })
+        };
+      }
+      function desviewListPets(){
+        const buttonPets = document.querySelectorAll(".pets-list")
+        buttonPets.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListPets() {
+       const buttonPets = document.querySelectorAll(".pets-list")
+       buttonPets.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListPets();
+       }
+      })
+      }
+      function viewItenListHome(){//function for view list
+
+        var existingData = localStorage.getItem("MyItens");
+      
+        var existingItens = existingData ? JSON.parse(existingData) : [];
+        
+       
+        const listAll = document.querySelector(".itens-in-list-home-appliances")
+       
+        
+      
+        if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
+          listAll.innerHTML = `<class="itens-in-list-home-appliances ">Home<img src="imagens/menu.png" alt="image for a menu" class="img-menu-home">`;
+        }
+          existingItens.forEach(function(item){
+          if(item.Category === "home-appliances"){//compare if category is equal a meat
+          var listItem = document.createElement("li");
+          listItem.classList.add("home-appliances-list")
+          listItem.classList.add("iten-of-list-green")
+          listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
+          <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
+          <span class="importance-span">Importance:</span><span class = "importance-span-item">${item.Importance}</span>
+           <span class="brand-span">Brand:</span><span class="brand-span-item">${item.Brand || ""}</span>`
+          
+          listAll.appendChild(listItem)
+        }}) 
+       if(existingItens.length > 0){
+        listAll.innerHTML += "</ul>";
+       }
+      }
+      
+       
+      //Meat List
+      function menuHomeView(){
+      const menuHome = document.querySelector(".itens-in-list-home-appliances")
+      const buttonHome = document.querySelector(".home-appliances-list")
+      if (menuHome) {
+        menuHome.addEventListener("click", () => {
+          if(menuHome.classList.contains("active")){
+            menuHome.classList.remove("active")
+            desviewListHome()
+          }else{
+          menuHome.classList.add("active")
+          viewListHome()
+      }
+        })
+        };
+      }
+      function desviewListHome(){
+        const buttonHome = document.querySelectorAll(".home-appliances-list")
+        buttonHome.forEach(function(btn){
+          btn.classList.add("hidden")
+        })
+      }
+      function viewListHome() {
+       const buttonHome = document.querySelectorAll(".home-appliances-list")
+       buttonHome.forEach(function(btn){
+       if (btn.classList.contains("hidden")) {
+          btn.classList.toggle("view")
+          viewItenListHome();
+       }
+      })
+      }
+function menuView(){
+  menuBakeryView(), menuCannedView(), menuCleaningView(), menuColdsView(), menuDrinksView(), menuFrozenView(), menuFruitsView()
+  menuGroceryView(), menuHomeView(), menuHygieneView(), menuMeatView(), menuPetsView(), menuPharmacyView(), menuPreparationsView()
+  menuSaucesView(), menuTreatsView(), menuUtilitiesView(), menuVegetablesView()
+}
+
+document.addEventListener("DOMContentLoaded", menuView)

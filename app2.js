@@ -1,21 +1,21 @@
-function viewItenListCanned(){//function for view list
+function viewItenListHome(){//function for view list
 
   var existingData = localStorage.getItem("MyItens");
 
   var existingItens = existingData ? JSON.parse(existingData) : [];
   
  
-  const listAll = document.querySelector(".itens-in-list-canned")
+  const listAll = document.querySelector(".itens-in-list-home-appliances")
  
   
 
   if(existingItens.length > 0){//adds the initial structure of the list(if there are items)
-    listAll.innerHTML = `<class="itens-in-list-canned ">Canned<img src="imagens/menu.png" alt="image for a menu" class="img-menu-canned">`;
+    listAll.innerHTML = `<class="itens-in-list-home-appliances ">Home<img src="imagens/menu.png" alt="image for a menu" class="img-menu-home">`;
   }
     existingItens.forEach(function(item){
-    if(item.Category === "canned"){//compare if category is equal a meat
+    if(item.Category === "home-appliances"){//compare if category is equal a meat
     var listItem = document.createElement("li");
-    listItem.classList.add("canned-list")
+    listItem.classList.add("home-appliances-list")
     listItem.classList.add("iten-of-list-green")
     listItem.innerHTML = `<span class="name-span">Name:</span><span class="name-span-item"> ${item.Name}</span>
     <span class = "unit-style">Units: </span><span class="unit-number">${item.Units}</span>
@@ -31,33 +31,33 @@ function viewItenListCanned(){//function for view list
 
  
 //Meat List
-function menuCannedView(){
-const menuCanned = document.querySelector(".itens-in-list-Canned")
-const buttonCanned = document.querySelector(".canned-list")
-if (menuCanned) {
-  menuCanned.addEventListener("click", () => {
-    if(menuCanned.classList.contains("active")){
-      menuCanned.classList.remove("active")
-      desviewListCanned()
+function menuHomeView(){
+const menuHome = document.querySelector(".itens-in-list-home-appliances")
+const buttonHome = document.querySelector(".home-appliances-list")
+if (menuHome) {
+  menuHome.addEventListener("click", () => {
+    if(menuHome.classList.contains("active")){
+      menuHome.classList.remove("active")
+      desviewListHome()
     }else{
-    menuCanned.classList.add("active")
-    viewListCanned()
+    menuHome.classList.add("active")
+    viewListHome()
 }
   })
   };
 }
-function desviewListCanned(){
-  const buttonCanned = document.querySelectorAll(".canned-list")
-  buttonCanned.forEach(function(btn){
+function desviewListHome(){
+  const buttonHome = document.querySelectorAll(".home-appliances-list")
+  buttonHome.forEach(function(btn){
     btn.classList.add("hidden")
   })
 }
-function viewListCanned() {
- const buttonCanned = document.querySelectorAll(".canned-list")
- buttonCanned.forEach(function(btn){
+function viewListHome() {
+ const buttonHome = document.querySelectorAll(".home-appliances-list")
+ buttonHome.forEach(function(btn){
  if (btn.classList.contains("hidden")) {
     btn.classList.toggle("view")
-    viewItenListCanned();
+    viewItenListHome();
  }
 })
 }
